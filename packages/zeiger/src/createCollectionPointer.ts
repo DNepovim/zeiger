@@ -26,10 +26,7 @@ export function createCollectionPointer<
           ? collection.filter((item) => filterFn(item, state))
           : collection;
 
-        return filtered.reduce<Pick<CollectionItem, Dep>[]>(
-          (acc, item) => Object.assign(acc, getObjectPart(item, deps)),
-          []
-        );
+        return filtered.map((item) => getObjectPart(item, deps));
       },
       (prev, cur) =>
         prev.length === cur.length &&
