@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist/
+storybook-static
+
+# Turborepo
+.turbo
+
+# Local/temp files
+.DS_Store
+*.local
+*.log*
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Environment
+.env
+.env.local
+.env.*.local
