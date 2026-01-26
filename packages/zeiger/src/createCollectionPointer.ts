@@ -9,10 +9,9 @@ export function createCollectionPointer<
   CollectionKey extends {
     [P in keyof State]: State[P] extends unknown[] ? P : never;
   }[keyof State],
-  Dep extends keyof CollectionItem,
   CollectionItem = State[CollectionKey] extends (infer Item)[] ? Item : never,
 >(store: Store, collectionKey: CollectionKey) {
-  return (
+  return <Dep extends keyof CollectionItem>(
     deps: Dep[],
     filterFn?: (item: CollectionItem, state: ExtractState<Store>) => boolean
   ): Pick<CollectionItem, Dep>[] =>
