@@ -23,7 +23,8 @@
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "knip": "knip"
   },
   "keywords": [
     "eslint",
@@ -35,7 +36,9 @@
   },
   "devDependencies": {
     "@rslib/core": "^0.18.4",
+    "@types/estree": "^1.0.8",
     "@types/node": "^24.10.1",
+    "knip": "^5.82.1",
     "typescript": "^5.9.3",
     "vitest": "^4.0.15"
   }
