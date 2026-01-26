@@ -214,11 +214,38 @@ function TodoItem({ todoId }: { todoId: string }) {
 
 - **Eliminates unnecessary re-renders** - Components only update when their specific dependencies change
 - **Fine-grained reactivity** - Select exactly which properties to track per component
-- **Type-safe** - Full TypeScript support with autocomplete for collection keys and item properties
+- **Type-safe** - Full TypeScript support with autocomplete for collection keys and item properties. The returned object type only includes properties listed in `deps`, so TypeScript will error if you try to access unlisted properties.
 - **Minimal API** - Just two functions to learn
 - **Built-in filtering** - Filter collections without additional selectors
 - **Zero configuration** - Works out of the box with any Zustand store
 - **Lightweight** - Tiny bundle size with no external dependencies beyond Zustand
+
+## Type Safety
+
+Zeiger is fully typed. When you specify properties in the `deps` array, the returned object is typed to only include those properties. This means TypeScript will catch errors at compile time if you try to access a property that wasn't listed in deps:
+
+```tsx
+const useTodosPointer = createCollectionPointer(useStore, 'todos');
+
+function TodoList() {
+  const todos = useTodosPointer(['id', 'title']);
+
+  return (
+    <ul>
+      {todos.map((todo) => (
+        // ✅ Works - 'id' and 'title' are in deps
+        <li key={todo.id}>{todo.title}</li>
+
+        // ❌ TypeScript Error - 'completed' is not in deps
+        // Property 'completed' does not exist on type 'Pick<Todo, "id" | "title">'
+        <span>{todo.completed}</span>
+      ))}
+    </ul>
+  );
+}
+```
+
+This ensures that your component's dependencies are always in sync with what you actually use, preventing subtle bugs where you forget to add a property to deps.
 
 ## When to Use Zeiger
 
