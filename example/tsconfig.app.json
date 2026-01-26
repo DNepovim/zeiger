@@ -9,6 +9,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "zeiger": ["../packages/zeiger/src/index.ts"]
     },
 

@@ -14,11 +14,9 @@ export default defineConfig({
       autoExternal: false,
       output: {
         externals: (data) => {
-          // Bundle zustand and all its subpaths instead of externalizing
           if (data.request?.startsWith('zustand')) {
             return false;
           }
-          // Externalize other peer dependencies
           return true;
         },
       },
@@ -29,11 +27,9 @@ export default defineConfig({
       autoExternal: false,
       output: {
         externals: (data) => {
-          // Bundle zustand and all its subpaths instead of externalizing
           if (data.request?.startsWith('zustand')) {
             return false;
           }
-          // Externalize other peer dependencies
           return true;
         },
       },

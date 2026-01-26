@@ -4,7 +4,8 @@ import { createCollectionPointer, createCollectionItemPointer } from 'zeiger';
 
 export interface User {
   id: string;
-  name: string;
+  firstName: string;
+  surname: string;
   email: string;
   role: string;
   department: string;
@@ -15,40 +16,45 @@ interface StoreState {
   updateUser: (id: string, updates: Partial<Omit<User, 'id'>>) => void;
 }
 
-export const useStore = create<StoreState>()(
+export const useUsersStore = create<StoreState>()(
   immer((set) => ({
     users: [
       {
         id: '1',
-        name: 'Alice Johnson',
+        firstName: 'Alice',
+        surname: 'Johnson',
         email: 'alice@example.com',
         role: 'Developer',
         department: 'Engineering',
       },
       {
         id: '2',
-        name: 'Bob Smith',
+        firstName: 'Bob',
+        surname: 'Smith',
         email: 'bob@example.com',
         role: 'Designer',
         department: 'Product',
       },
       {
         id: '3',
-        name: 'Charlie Brown',
+        firstName: 'Charlie',
+        surname: 'Brown',
         email: 'charlie@example.com',
         role: 'Manager',
         department: 'Operations',
       },
       {
         id: '4',
-        name: 'Diana Ross',
+        firstName: 'Diana',
+        surname: 'Ross',
         email: 'diana@example.com',
         role: 'Analyst',
         department: 'Finance',
       },
       {
         id: '5',
-        name: 'Edward Norton',
+        firstName: 'Edward',
+        surname: 'Norton',
         email: 'edward@example.com',
         role: 'Developer',
         department: 'Engineering',
@@ -64,10 +70,9 @@ export const useStore = create<StoreState>()(
   }))
 );
 
-// Create zeiger pointers for optimized selections
-export const useUsersPointer = createCollectionPointer(useStore, 'users');
+export const useUsersPointer = createCollectionPointer(useUsersStore, 'users');
 export const useUserPointer = createCollectionItemPointer(
-  useStore,
+  useUsersStore,
   'users',
   'id'
 );
