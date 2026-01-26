@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { createCollectionPointer, createCollectionItemPointer } from 'zeiger';
 
-export interface User {
+interface User {
   id: string;
   firstName: string;
   surname: string;
@@ -71,6 +71,7 @@ export const useUsersStore = create<StoreState>()(
 );
 
 export const useUsersPointer = createCollectionPointer(useUsersStore, 'users');
+
 export const useUserPointer = createCollectionItemPointer(
   useUsersStore,
   'users',

@@ -1,14 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
-import { useUserPointer } from '../../usersStore';
+import { createCollectionItemPointer } from 'zeiger';
 import { TableCell } from '@/components/ui/table';
 import { cn } from '@/lib/utils';
+import { useUsersStore } from '../../usersStore';
 
 interface EmailCellProps {
   userId: string;
 }
 
 export function EmailCell({ userId }: EmailCellProps) {
-  const user = useUserPointer(userId, ['email']);
+  const useUserPointer = createCollectionItemPointer(
+    useUsersStore,
+    'users',
+    'id'
+  );
+
+  const user = useUserPointer(userId, ['email', 'surname']);
 
   const renderCount = useRef(0);
   const [isHighlighted, setIsHighlighted] = useState(false);

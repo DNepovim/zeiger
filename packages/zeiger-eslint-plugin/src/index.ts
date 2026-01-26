@@ -1,4 +1,5 @@
 import type { ESLint } from 'eslint';
+import zeigerDeps from './rules/zeiger-deps';
 
 const plugin: ESLint.Plugin = {
   meta: {
@@ -6,13 +7,13 @@ const plugin: ESLint.Plugin = {
     version: '1.0.0',
   },
   rules: {
-    // Add your Zeiger-specific ESLint rules here
+    'zeiger-deps': zeigerDeps,
   },
   configs: {
     recommended: {
       plugins: ['zeiger'],
       rules: {
-        // Add recommended rule configurations here
+        'zeiger/zeiger-deps': 'error',
       },
     },
   },
