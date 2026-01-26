@@ -220,6 +220,19 @@ function TodoItem({ todoId }: { todoId: string }) {
 - **Zero configuration** - Works out of the box with any Zustand store
 - **Lightweight** - Tiny bundle size with no external dependencies beyond Zustand
 
+## ESLint Plugin
+
+For the best development experience, use [zeiger-eslint-plugin](https://www.npmjs.com/package/zeiger-eslint-plugin) to automatically catch common mistakes:
+
+- Empty dependency arrays
+- Unused properties in dependency arrays
+
+```bash
+npm install --save-dev zeiger-eslint-plugin
+```
+
+See the [plugin documentation](https://www.npmjs.com/package/zeiger-eslint-plugin) for setup instructions.
+
 ## Type Safety
 
 Zeiger is fully typed. When you specify properties in the `deps` array, the returned object is typed to only include those properties. This means TypeScript will catch errors at compile time if you try to access a property that wasn't listed in deps:

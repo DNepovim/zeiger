@@ -1,6 +1,8 @@
 # zeiger-eslint-plugin
 
-ESLint plugin for [Zeiger](https://github.com/DNepovim/zeiger) - ensures proper usage of Zeiger hooks with dependency arrays.
+ESLint plugin for [Zeiger](https://www.npmjs.com/package/zeiger) - ensures proper usage of Zeiger hooks with dependency arrays.
+
+Zeiger is a library for creating memoized collection item selectors for [Zustand](https://github.com/pmndrs/zustand) that eliminates unnecessary re-renders. This ESLint plugin helps you use Zeiger correctly by catching common mistakes with dependency arrays.
 
 ## Installation
 
