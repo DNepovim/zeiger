@@ -15,7 +15,7 @@ export function EmailCell({ userId }: EmailCellProps) {
     'id'
   );
 
-  const user = useUserPointer(userId, ['email', 'surname']);
+  const user = useUserPointer(userId, ['email']);
 
   const renderCount = useRef(0);
   const [isHighlighted, setIsHighlighted] = useState(false);

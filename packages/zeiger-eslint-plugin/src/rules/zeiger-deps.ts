@@ -3,6 +3,7 @@ import type { Rule } from 'eslint';
 const rule: Rule.RuleModule = {
   meta: {
     type: 'problem',
+    fixable: 'code',
     docs: {
       description:
         'Ensure zeiger hook dependency arrays are not empty and all dependencies are used',
@@ -330,17 +331,47 @@ const rule: Rule.RuleModule = {
             type: 'ArrayExpression';
             elements: (Rule.Node | null)[];
           };
+          const unusedDeps: {
+            element: Rule.Node;
+            index: number;
+            property: string;
+          }[] = [];
+
           for (let i = 0; i < deps.length; i++) {
             const dep = deps[i];
             if (!usedProperties.has(dep)) {
               const depElement = arrayNode.elements[i];
               if (depElement) {
-                context.report({
-                  node: depElement,
-                  messageId: 'unusedDep',
-                  data: { property: dep },
+                unusedDeps.push({
+                  element: depElement,
+                  index: i,
+                  property: dep,
                 });
               }
+            }
+          }
+
+          if (unusedDeps.length > 0) {
+            const usedDeps = deps.filter((dep) => usedProperties.has(dep));
+
+            for (const { element, property } of unusedDeps) {
+              context.report({
+                node: element,
+                messageId: 'unusedDep',
+                data: { property },
+                fix(fixer) {
+                  if (usedDeps.length === 0) {
+                    return null;
+                  }
+
+                  const arrayText = usedDeps
+                    .map((dep) => `'${dep}'`)
+                    .join(', ');
+                  const newArrayText = `[${arrayText}]`;
+
+                  return fixer.replaceText(depsArg as Rule.Node, newArrayText);
+                },
+              });
             }
           }
         }

@@ -88,6 +88,34 @@ return (
 );
 ```
 
+## Autofix
+
+The plugin supports automatic fixing of unused dependencies. When you run ESLint with the `--fix` flag, it will automatically remove unused properties from dependency arrays:
+
+```bash
+eslint --fix .
+```
+
+**Example:**
+
+```tsx
+// Before
+const user = useUserPointer('1', ['firstName', 'surname', 'email']);
+return (
+  <div>
+    {user?.firstName} - {user?.email}
+  </div>
+);
+
+// After autofix
+const user = useUserPointer('1', ['firstName', 'email']);
+return (
+  <div>
+    {user?.firstName} - {user?.email}
+  </div>
+);
+```
+
 ## Why This Plugin?
 
 Zeiger hooks use dependency arrays to specify which properties to subscribe to. This plugin helps you:
@@ -95,6 +123,7 @@ Zeiger hooks use dependency arrays to specify which properties to subscribe to. 
 - **Avoid unnecessary subscriptions** - Catch unused properties in dependency arrays
 - **Prevent empty arrays** - Ensure you're always subscribing to at least one property
 - **Maintain code quality** - Keep your Zeiger hooks clean and efficient
+- **Automatic fixes** - Remove unused dependencies with ESLint's autofix feature
 
 ## License
 
