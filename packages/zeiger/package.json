@@ -5,6 +5,7 @@
   "repository": "https://github.com/DNepovim/zeiger",
   "author": "Dominik Bláha <iam@dominikblaha.cz>",
   "version": "0.1.0",
+  "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
