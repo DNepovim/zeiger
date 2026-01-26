@@ -204,8 +204,8 @@ importers:
         version: 9.39.2(jiti@2.6.1)
     devDependencies:
       '@rslib/core':
-        specifier: ^0.18.4
-        version: 0.18.6(typescript@5.9.3)
+        specifier: ^0.19.3
+        version: 0.19.3(typescript@5.9.3)
       '@types/estree':
         specifier: ^1.0.8
         version: 1.0.8
@@ -1179,19 +1179,6 @@ packages:
     resolution: {integrity: sha512-Uf9FkKk2TqYDbsypXHgjdivPmEoYFvBTHJT5fPmjCf0Sc3lR2BHtlc0WMdZTCKUJ5jTxREygMs9LbnehX98L8g==}
     peerDependencies:
       '@rsbuild/core': ^1.0.0 || ^2.0.0-0
-
-  '@rslib/core@0.18.6':
-    resolution: {integrity: sha512-mMjfmtXRPHOCzO1A8KcAQckIHi/vA+qOHT/zK4M8Nnr5h1eAO6HIEN7AvJdgbIf5YXsVH6bXonrXdAwwP0gHow==}
-    engines: {node: '>=18.12.0'}
-    hasBin: true
-    peerDependencies:
-      '@microsoft/api-extractor': ^7
-      typescript: ^5
-    peerDependenciesMeta:
-      '@microsoft/api-extractor':
-        optional: true
-      typescript:
-        optional: true
 
   '@rslib/core@0.19.3':
     resolution: {integrity: sha512-uk20PPGL9ENTMoxLouEfHuf6pDhLIyewjLvVD2XyggSI+nkuXyafj2hQyd2r/cwkQ8+Gkbm4LXMcw0nFKvH09Q==}
@@ -2663,22 +2650,6 @@ packages:
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
     hasBin: true
 
-  rsbuild-plugin-dts@0.18.6:
-    resolution: {integrity: sha512-E0KxiXxY5T3D+DjMMQS3/DMlNwjzNp1xEYyH68gwI7Ptm3a1ChawvlZ1DqVW5m8NWkdbCbcAyazwOnDD3yVOLQ==}
-    engines: {node: '>=18.12.0'}
-    peerDependencies:
-      '@microsoft/api-extractor': ^7
-      '@rsbuild/core': 1.x
-      '@typescript/native-preview': 7.x
-      typescript: ^5
-    peerDependenciesMeta:
-      '@microsoft/api-extractor':
-        optional: true
-      '@typescript/native-preview':
-        optional: true
-      typescript:
-        optional: true
-
   rsbuild-plugin-dts@0.19.3:
     resolution: {integrity: sha512-TMHNAg+AehA3ERJ7Z3zASsPyyIIoLd7gLFZAFOfyzvttyMH5qEaQ1HtIzC4bKH17dDLVNduh8aCFtwNpUEfJvQ==}
     engines: {node: '>=18.12.0'}
@@ -4080,15 +4051,6 @@ snapshots:
       react-refresh: 0.18.0
     transitivePeerDependencies:
       - webpack-hot-middleware
-
-  '@rslib/core@0.18.6(typescript@5.9.3)':
-    dependencies:
-      '@rsbuild/core': 1.7.2
-      rsbuild-plugin-dts: 0.18.6(@rsbuild/core@1.7.2)(typescript@5.9.3)
-    optionalDependencies:
-      typescript: 5.9.3
-    transitivePeerDependencies:
-      - '@typescript/native-preview'
 
   '@rslib/core@0.19.3(typescript@5.9.3)':
     dependencies:
@@ -5589,13 +5551,6 @@ snapshots:
       '@rollup/rollup-win32-x64-gnu': 4.56.0
       '@rollup/rollup-win32-x64-msvc': 4.56.0
       fsevents: 2.3.3
-
-  rsbuild-plugin-dts@0.18.6(@rsbuild/core@1.7.2)(typescript@5.9.3):
-    dependencies:
-      '@ast-grep/napi': 0.37.0
-      '@rsbuild/core': 1.7.2
-    optionalDependencies:
-      typescript: 5.9.3
 
   rsbuild-plugin-dts@0.19.3(@rsbuild/core@1.7.2)(typescript@5.9.3):
     dependencies:

@@ -39,7 +39,7 @@
     "eslint": ">=8.0.0"
   },
   "devDependencies": {
-    "@rslib/core": "^0.18.4",
+    "@rslib/core": "^0.19.3",
     "@types/estree": "^1.0.8",
     "@types/node": "^24.10.1",
     "knip": "^5.82.1",
