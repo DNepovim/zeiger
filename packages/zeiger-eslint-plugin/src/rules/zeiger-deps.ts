@@ -27,6 +27,7 @@ const rule: Rule.RuleModule = {
       const callNode = node as Rule.Node & {
         type: 'CallExpression';
         callee: Rule.Node;
+        arguments: Rule.Node[];
       };
       const callee = callNode.callee;
 
@@ -38,6 +39,16 @@ const rule: Rule.RuleModule = {
         callee as Rule.Node & { type: 'Identifier'; name: string }
       ).name;
       if (!hookName.startsWith('use')) {
+        return false;
+      }
+
+      const args = callNode.arguments;
+      if (args.length === 0) {
+        return false;
+      }
+
+      const lastArg = args[args.length - 1];
+      if (lastArg.type !== 'ArrayExpression') {
         return false;
       }
 
@@ -99,6 +110,10 @@ const rule: Rule.RuleModule = {
               }
             }
           }
+        }
+
+        if (def.type === 'ImportBinding') {
+          return true;
         }
       }
 
