@@ -1,5 +1,11 @@
 # zeiger
 
+## 0.2.1
+
+### Minor Changes
+
+- Fix version mishmash
+
 ## 0.2.0
 
 ### Minor Changes
