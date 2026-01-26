@@ -1,5 +1,12 @@
 # zeiger-eslint-plugin
 
+## 0.1.1
+
+### Patch Changes
+
+- Add license fields to pacakge.json
+  zeiger-eslint-plugin: autofix
+
 ## 0.1.0
 
 ### Minor Changes
