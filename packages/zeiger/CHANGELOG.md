@@ -1,5 +1,11 @@
 # zeiger
 
+## 0.2.0
+
+### Minor Changes
+
+- Fix returned type
+
 ## 0.1.1
 
 ### Patch Changes
