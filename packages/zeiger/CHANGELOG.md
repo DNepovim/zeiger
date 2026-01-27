@@ -1,5 +1,11 @@
 # zeiger
 
+## 0.3.0
+
+### Minor Changes
+
+- Sync packages version numbers
+
 ## 0.2.1
 
 ### Minor Changes

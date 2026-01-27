@@ -1,5 +1,11 @@
 # zeiger-eslint-plugin
 
+## 0.3.0
+
+### Minor Changes
+
+- Sync packages version numbers
+
 ## 0.1.2
 
 ### Patch Changes
